@@ -1,0 +1,61 @@
+<html>
+    <body bgcolor="orange" align = "center">
+        <h1> Regitration form</h1>
+        <form>
+            Name:<input type = "text" placeholder = "name" id = "N"><br><br>
+            Email:<input type = "email" placeholder = "email" id = "E"><br><br>
+            Mobile no:<input type = "number" placeholder = "ph number" id = "M"><br><br>
+            <input type = "submit" value = "register" onclick = "return validate()" >
+        </form>
+        <script>
+            function validate()
+            {
+            var a = document.getElementById("N");
+            var b = document.getElementById("E");
+            var c = document.getElementById("M");
+
+            var p = a.value;
+            var q = b.value;
+            var r = c.value;
+
+            var x = /^[a-zA-Z]+[0-9a-zA-Z._]*$/;
+            var y = /^[a-zA-Z]+([\._]?\w+)*@\w([\.]?\w+)*(\.\w{2,3})+$/;
+            var z = /^[6-9][0-9]{9}$/;
+
+            if (x.test(p)){
+                if(y.test(q)){
+                    if(z.test(r)) {
+                    alert("registration successfull");
+                    return true; 
+                    }
+                    else {
+                    return error(c);
+                    }
+                }
+                else{
+                    return error(b);
+                }
+            }
+            else{ 
+                return error(a);
+                }
+            } 
+        function error(ele){
+            alert("Invalid");
+            ele.style.border = "4px solid red"
+            ele.value = "";
+            ele.placeholder = "invalid";
+            ele.focus();
+            return false;
+
+        }
+     </script>
+     <br>
+     <br>
+     <br>
+     <br>
+     <h3 align ="center">Abhignya Reddy</h3>
+     <h3 align ="center">24881A1201</h3>
+     
+        </body>
+</html>
