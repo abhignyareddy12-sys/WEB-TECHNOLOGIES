@@ -1,0 +1,72 @@
+<html>
+  <body>
+    <h1 align="center">EMI CALCULATOR</h1>
+    <style>
+      input[type='text'] {
+        padding: 15px;
+        background-color: orchid;
+        color: blanchedalmond;
+        width: 100%;
+        border: 2px;
+        font-size: 20px;
+      }
+      input[type='number'] {
+        padding: 15px;
+        background-color: yellowgreen;
+        color: blanchedalmond;
+        width: 100%;
+        border: 2px;
+        font-size: 20px;
+      }
+      input[type='button'] {
+        padding: 15px;
+        background-color: blueviolet;
+        color: blanchedalmond;
+        width: 100%;
+        margin: 30px;
+        border: 2px;
+        font-size: 20px;
+      }
+    </style>
+
+    <form>
+      Name:<input type="text" placeholder="enter name" /><br />
+      occupation:<input type="text" placeholder="enter occupation" /><br />
+      Loan Amount<input
+        type="number"
+        placeholder="enter Loan Amount"
+        id="amt"
+      /><br />
+      Intrest Rate<input
+        type="number"
+        placeholder="enter rate"
+        id="roi"
+      /><br />
+      Tenure in years:<input
+        type="number"
+        placeholder="enter Tenure in years"
+        id="t"
+      /><br />
+      <input type="button" value="calculateEMI" onclick="calculateEMI()" />
+    </form>
+    <h2 id="result"></h2>
+    <script>
+      function calculateEMI() {
+        var A = document.getElementById('amt').value;
+        var T = document.getElementById('roi').value;
+        var I = document.getElementById('t').value;
+        var miri = I / (12 * 100);
+        var months = T * 12;
+        var emi =
+          (A * miri * Math.pow(1 + miri, months)) /
+          (Math.pow(1 + miri, months) - 1);
+        document.getElementById('result').innerHTML =
+          '<h5>Your EMI is:' + emi.toFixed(2) + '</h5>';
+      }
+    </script>
+    <p align="right" text color="crimson">
+      24881A1201 <br />
+      AbhignyaReddy
+    </p>
+  </body>
+</html>
